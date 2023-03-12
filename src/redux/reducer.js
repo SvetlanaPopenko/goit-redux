@@ -9,7 +9,7 @@ const tasksInitialState = [
   { id: 4, text: 'Build amazing apps', completed: false },
 ];
 
-const taksReducer = (state = tasksInitialState, action) => {
+const tasksReducer = (state = tasksInitialState, action) => {
   switch (action.type) {
     case 'tasks/addTask':
       return [...state, action.payload];
@@ -22,7 +22,7 @@ const taksReducer = (state = tasksInitialState, action) => {
         }
         return {
           ...task,
-          completed: !task.completed,
+          completed: !task.completed
         };
       });
     default:
@@ -36,7 +36,7 @@ const filtersInitialState = {
 
 export const filtersReducer = (state = filtersInitialState, action) => {
   switch (action.type) {
-    case 'filter/setStatusFilter':
+    case 'filters/setStatusFilter':
       return {
         ...state,
         status: action.payload,
@@ -47,6 +47,6 @@ export const filtersReducer = (state = filtersInitialState, action) => {
 };
 
 export const rootReducer = combineReducers({
-  tasks: taksReducer,
+  tasks: tasksReducer,
   filters: filtersReducer,
 });
